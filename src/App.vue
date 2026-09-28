@@ -1,18 +1,34 @@
 <script lang="ts" setup>
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 
 const title = ref('Hello, world!'); // Reactivity!
 
-const wasAccepted = ref(false);
+const products = ref([
+  {
+    id: 1,
+    name: 'Book',
+    price: 5,
+  },
+  {
+    id: 2,
+    name: 'Notebook',
+    price: 800,
+  },
+  {
+    id: 3,
+    name: 'Smartphone',
+    price: 500,
+  },
+]);
+
+const totalPrice = computed(() => {
+  return products.value.reduce((sum, product) => sum + product.price, 0.0);
+});
 </script>
 
 <template>
   <h1>{{ title }}</h1>
-
-  <p v-if="wasAccepted">Accepted</p>
-  <p v-else>Not accepted</p>
-
-  <input v-model="wasAccepted" type="checkbox" />
+  <p>Total price: US$ {{ totalPrice }}</p>
 </template>
 
 <style scoped></style>
