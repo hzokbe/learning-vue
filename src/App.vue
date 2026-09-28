@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { computed, ref, watch } from 'vue';
 import AppButton from '@/components/AppButton.vue';
+import AppInput from '@/components/AppInput.vue';
 
 const title = ref('Hello, world!'); // Reactivity!
 
@@ -53,8 +54,8 @@ watch(products, () => alert('Item added successfully!'), {
   <h1>{{ title }}</h1>
   <p>Total price: US$ {{ totalPrice }}</p>
   <form @submit="onSubmit">
-    <input v-model="productName" placeholder="Product name" />
-    <input v-model="productPrice" placeholder="Product price" type="number" />
+    <AppInput v-model="productName" placeholder="Product name" required type="text" />
+    <AppInput v-model="productPrice" placeholder="Product price" required type="number" />
     <AppButton type="button" variant="ghost" @click="() => console.log('Click!')">
       Add product
     </AppButton>
