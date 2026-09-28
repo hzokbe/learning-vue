@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed, ref } from 'vue';
+import { computed, ref, watch } from 'vue';
 
 const title = ref('Hello, world!'); // Reactivity!
 
@@ -42,6 +42,10 @@ const onSubmit = (event: SubmitEvent) => {
 
   productPrice.value = 0.0;
 };
+
+watch(products, () => alert('Item added successfully!'), {
+  deep: true,
+});
 </script>
 
 <template>
