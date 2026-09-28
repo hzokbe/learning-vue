@@ -2,12 +2,17 @@
 import { ref } from 'vue';
 
 const title = ref('Hello, world!'); // Reactivity!
+
+const wasAccepted = ref(false);
 </script>
 
 <template>
   <h1>{{ title }}</h1>
 
-  <input v-model="title" placeholder="Enter a title" />
+  <p v-if="wasAccepted">Accepted</p>
+  <p v-else>Not accepted</p>
+
+  <input v-model="wasAccepted" type="checkbox" />
 </template>
 
 <style scoped></style>
