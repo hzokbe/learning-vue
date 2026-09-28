@@ -11,6 +11,7 @@ const showDescription = ref(false);
 <template>
   <h1>{{ title }}</h1>
   <p v-if="showDescription">{{ description }}</p>
+  <p v-else>No description</p>
 </template>
 
 <style scoped></style>
