@@ -1,7 +1,11 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import { ref } from 'vue';
+
+const title = ref('Hello, world!'); // Reactivity!
+</script>
 
 <template>
-  <h1>Hello, world!</h1>
+  <h1>{{ title }}</h1>
 </template>
 
 <style scoped></style>
